@@ -1,0 +1,120 @@
+*{
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+}
+
+.body{
+    max-width: 375px;
+    font-family: 'Roboto';
+    color: #000000;
+
+}
+
+.container{
+    width: 375px;
+    height: 667px;
+    border: 1px solid green;
+}
+
+.sidebar{
+    position: absolute;
+    flex-shrink: 0;
+    width: 259px;
+    background-color: #FFFFFF;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 116px;
+}
+
+.aviso , .escolherVisibilidade{
+    height: 84px;
+    left: 116px;
+    top: 0px;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border: 1px solid red;
+}
+.escolherVisibilidade{
+    padding-left: 40px;
+}
+.opcoesContatos{
+    display: flex;
+    align-items: center;
+}
+
+.icones{
+    height: 36px;
+}
+
+.ion-icon{
+    width: 24px;
+    height: 18px;
+}
+
+p{
+    width: 238px;
+    height: 36px;
+    font-size: 16px;
+    margin-left: 5px;
+    border: 1px solid blue;
+}
+
+.contaPublica , .contaReservada{
+    display: flex;
+}
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px;
+    background: #FFFFFF;
+    z-index: 1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+.header > img{
+    width: 75px;
+    height: 53px;
+}
+.peopleHeader{
+    width: 42px;
+    height: 30px;
+}
+
+.bottom{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    left: 0px;
+    bottom: 0px;
+    background: #FFFFFF;
+    margin-top: 490px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+
+}
+
+.chatHere{
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    border: none;
+}
+
+.bottom ion-icon{
+    width: 26px;
+    height: 26px;
+}
