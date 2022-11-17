@@ -82,3 +82,26 @@ function focarNaUltimaMensagem() {
     const ultimaMensagem = ul.lastElementChild;
     ultimaMensagem.scrollIntoView();
 }
+
+function enviarMensagem() {
+    const input = document.querySelector("footer input");
+    const mensagem = input.value;
+    const promise = axios.post(`${UOL_API}/messages`, {
+      from: usuario,
+      to: "Todos",
+      text: mensagem,
+      type: "message"
+    });
+  
+    promise.then(resposta => {
+        console.log(resposta.data);
+    });
+    promise.catch(erro => {
+      console.error("Deu ruim na hora de enviar mensagem!");
+      alert("A mensagem não foi enviada!");
+      window.location.reload();
+    });
+  
+    input.value = "";
+    
+  }
