@@ -19,6 +19,46 @@
     overflow-x: hidden;
 }
 
+.container-entrada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+}
+  
+.container-entrada img {
+    position: absolute;
+    width: 130px;
+    height: 92px;
+    top: 72px;
+}
+  
+.container-entrada input {
+    text-align: center;
+    width: 260px;
+    height: 54px;
+    padding: 5px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+}
+
+.container-entrada button {
+    width: 109px;
+    height: 45px;
+    background: var(--botao-entrar);
+    border-radius: 9px;
+    border: 0;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--botao-entrar-texto);
+}
+
 ion-icon {
     cursor: pointer;
 }
