@@ -128,6 +128,77 @@ footer * {
     margin: 0 17px;
 }
 
+aside.menu {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    background: #fff;
+    width: 210px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    transition: all 150ms linear;
+    overflow-y: scroll;
+}
+
+aside .titulo-menu{
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 5px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+
+aside.menu li {
+    font-size: 14px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    word-break: break-word;
+}
+
+aside.menu ion-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    margin-top: -2px;
+    flex-shrink: 0;
+}
+
+aside.menu.escondido {
+    right: -210px;
+}
+
+.check {
+    position: absolute;
+    right: -5px;
+    top: -2px;
+    color: #61aa47;
+    display: none;
+}
+
+.selecionado .check {
+    display: inline;
+}
+
+.menu-fundo {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background: #0009;
+}
+
+
+.escondido {
+    display: none;
+}
 
 @media (max-width: 600px) {
     body {

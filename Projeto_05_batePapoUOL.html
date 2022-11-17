@@ -17,8 +17,23 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="menu-fundo escondido"></div>
+        <aside class="menu escondido">
+            <h3 class="titulo-menu">Escolha um contato para enviar mensagem:</h3>
+            <ul class="contatos"></ul>
+            <h3 class="titulo-menu">Escolha a visibilidade:</h3>
+            <ul class="visibilidade">
+                <li class="visibilidade-publico selecionado">
+                    <ion-icon name="lock-open"></ion-icon>Público<ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </li>
+                <li class="visibilidade-privado">
+                    <ion-icon name="lock-closed"></ion-icon>Reservado<ion-icon class="check" name="checkmark-outline"></ion-icon>
+                </li>
+            </ul>
+        </aside>
+    
 
+    <div class="container">
         <header>
             <img src="./Images/logo 1.png" alt="logo do bate-papo">
             <ion-icon name="people"></ion-icon>
@@ -34,7 +49,6 @@
             </div>
             <ion-icon name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
         </footer>
-
     </div>
         
     
