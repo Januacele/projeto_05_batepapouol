@@ -76,3 +76,9 @@ function renderizarMensagens(mensagens) {
         }
     });
 }
+
+function focarNaUltimaMensagem() {
+    const ul = document.querySelector("main ul");
+    const ultimaMensagem = ul.lastElementChild;
+    ultimaMensagem.scrollIntoView();
+}
