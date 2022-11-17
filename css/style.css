@@ -57,6 +57,7 @@
     font-weight: 400;
     font-size: 18px;
     color: var(--botao-entrar-texto);
+    cursor: pointer;
 }
 
 ion-icon {

@@ -5,7 +5,8 @@ let usuario = null;
 
 
 function obterNomeUsuario(){
-    usuario = prompt("digite seu nome de usuário: ");
+    input = document.querySelector("container-entrada input");
+    const usuario = input.value;
     const promise = axios.post(`${UOL_API}/participants`, { name: usuario });
 
     promise.then(() => {
