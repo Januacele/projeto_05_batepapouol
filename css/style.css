@@ -1,128 +1,133 @@
-*{
+* {
     box-sizing: border-box;
-    left: 0;
-    top: 0;
-}
-
-.strong {
-    font-weight: bold;
+    --cor-fundo: #F3F3F3;
+    --fundo-mensagem-status: #DCDCDC;
+    --fundo-mensagem-publica: #FFFFFF;
+    --fundo-mensagem-reservada: #FFDEDE;
+    --mensagem-horario: #BDBDBD;
+    --botao-entrar: #E7E7E7;
+    --botao-entrar-texto: #696969;
 }
 
 .body{
-    width: 100%;
-    font-family: 'Roboto';
-    color: #000000;
-
+    width: 100vw;
+    background-color: var(--cor-fundo);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-main{
-    margin-top: 24px;
-    margin-bottom: 5px;
-    overflow-y: scroll;   
-}
-
-.chat{
-    width: 100%;
-    overflow-y: scroll; 
-}
-li{
-    overflow-y: scroll; 
-}
-
-p{
-    width: 238px;
-    height: 36px;
-    font-size: 16px;
-    margin-left: 5px;
-    border: 1px solid blue;
+ion-icon {
+    cursor: pointer;
 }
 
 header{
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 100%;
+    right: 0px;
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 26px;
+    font-size: 45px;
     background: #FFFFFF;
     z-index: 1;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
 }
-header > img{
+
+header img{
     width: 75px;
     height: 53px;
 }
-.peopleHeader{
-    width: 42px;
-    height: 30px;
+
+header * {
+    margin: 0 22px;
 }
 
-.bottom{
+main{
+    margin: 80px 0;  
+}
+
+main .mensagem {
+    min-height: 40px;
+    width: 100%;
+    padding: 10px 8px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.mensagem span {
+    margin-right: 10px;
+}
+  
+.mensagem b {
+    font-weight: bold;
+}
+
+.mensagem .horario {
+    color: var(--mensagem-horario);
+}
+
+main .status {
+    background-color: var(--fundo-mensagem-status);
+}
+  
+main .publica {
+    background-color: var(--fundo-mensagem-publica);
+}
+  
+main .reservada {
+    background-color: var(--fundo-mensagem-reservada);
+}
+
+
+footer{
     position: fixed;
     left: 0;
-    width: 100%;
-    height: 74px;
-    padding: 40px;
-    background: #FFFFFF;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    font-size: 26px;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 630px;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
-
 }
 
-.chatHere{
+footer input {
+    border: 0;
+    color: black;
+    width: 70%;
     font-size: 18px;
-    font-style: italic;
+}
+  
+footer .destinatario {
+    display: none;
+    margin-top: 3px;
+    font-weight: 300;
+    font-size: 14px;
+}
+  
+footer input::placeholder {
     font-weight: 400;
-    border: none;
+    color: black;
+    font-style: italic;
+}
+  
+footer input:focus {
+    outline: 0;
+    font-style: normal;
+}
+  
+footer * {
+    margin: 0 17px;
 }
 
-
-.msg-status{
-    width: 100%;
-    height: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    word-wrap: break-word;
-    background: #DCDCDC;
-    border-radius: 2px;
-    margin-top: 4px;
-}
-
-.mensagem{
-    width: 100%;
-    height: 100%;
-    padding-top:20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    word-wrap: break-word;
-    align-items: center;
-    background: #FFFFFF;
-    border-radius: 2px;
-    margin-top: 4px;
-}
-
-.bottom ion-icon{
-    width: 26px;
-    height: 26px;
-}
-
-.bottom ion-icon:hover{
-    cursor: pointer;
-}
-
-.bottom >input{
-    width: 600px;
-}
 
 @media (max-width: 600px) {
     body {
