@@ -105,3 +105,15 @@ function enviarMensagem() {
     input.value = "";
     
   }
+
+  function manterUsuarioConectado() {
+    const promise = axios.post(`${UOL_API}/status`, { name: usuario });
+    promise.then(resposta => console.info("Usuário continua ativo"));
+    promise.catch(erro => {
+      console.error(erro.response);
+      alert("Ops! Parece que você caiu! (ou foi kickado...)");
+      window.location.reload();
+    })
+  }
+
+  obterNomeUsuario();
