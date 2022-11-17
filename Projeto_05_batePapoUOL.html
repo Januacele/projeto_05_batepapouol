@@ -17,48 +17,26 @@
 </head>
 
 <body>
-
     <div class="container">
-        
-    
-        <div class="header">
-            <img src="./Images/logo 1.png">
-            <ion-icon class="peopleHeader" name="people"></ion-icon>
-        </div>
-    
-        <div class="conteudo"> 
-            <ul class="chat"> 
-                <li class="msg-status"> 
-                    <pre class="data"> data </pre>
-                    <pre class="nome strong"> nome </pre>
-                    <pre class="msg"> entrou na sala </pre>
-        
-                </li>
-                <li class="mensagem"> 
-                    <pre class="data"> data </pre>
-                    <pre class="nome strong"> nome </pre>
-                    <pre> para </pre>
-                    <pre class="strong"> Todos </pre>
-                    <pre class="msg"> Bom dia </pre>
-                    
-                </li>
-            </ul>
-        </div>
 
-        <div class="bottom">
-            <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-            <input type="text" class="chatHere" placeholder="Escreva aqui..." />
+        <header>
+            <img src="./Images/logo 1.png" alt="logo do bate-papo">
+            <ion-icon name="people"></ion-icon>
+        </header>
+    
+        <main> 
+            <ul> </ul>
+        </main>
+
+        <footer>
+            <div>
+                <input type="text" placeholder="Escreva aqui..." />
+            </div>
             <ion-icon name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
-        </div>
-    
-        
-
+        </footer>
 
     </div>
-
-    
-
-       
+        
     
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

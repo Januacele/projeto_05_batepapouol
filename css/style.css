@@ -15,13 +15,7 @@
 
 }
 
-.container{
-    width: 100%;
-    height: 667px;
-    background: #E5E5E5;
-}
-
-.conteudo{
+main{
     margin-top: 24px;
     margin-bottom: 5px;
     overflow-y: scroll;   
@@ -43,7 +37,7 @@ p{
     border: 1px solid blue;
 }
 
-.header{
+header{
     position: fixed;
     top: 0px;
     left: 0px;
@@ -57,7 +51,7 @@ p{
     z-index: 1;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
 }
-.header > img{
+header > img{
     width: 75px;
     height: 53px;
 }
@@ -68,7 +62,6 @@ p{
 
 .bottom{
     position: fixed;
-    bottom: 0;
     left: 0;
     width: 100%;
     height: 74px;
@@ -118,7 +111,6 @@ p{
     margin-top: 4px;
 }
 
-.
 .bottom ion-icon{
     width: 26px;
     height: 26px;
