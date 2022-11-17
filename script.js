@@ -27,85 +27,52 @@ function obterMensagens() {
       console.error(erro.response);
       alert("Não recebeu as mensagens");
     })
-  }
-
-
-function sucessoOnline(info){
-    if (info.status === 200){
-        setInterval(manterOnline,4000)
-        console.log(200)
-        setInterval(buscarMensagens, 3000)
-        buscarMensagens();
-    } 
 }
 
-//Mantém usuário online, verificando a cada 4segundos
-function manterOnline(){
-    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/status", newName);
-    console.log("here");
-}
+function renderizarMensagens(mensagens) {
+    const ul = document.querySelector("main ul");
+    ul.innerHTML = "";
 
- //entrarnaSala();
-function buscarMensagens(){
-    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+    mensagens.forEach(mensagem => {
+        const tipo = mensagem.type;
+        const remetente = mensagem.from;
+        const destinatario = mensagem.to;
+        const horario = mensagem.time;
+        const texto = mensagem.text;
 
-    promise.then(receberMensagens);
-}
-
-//Receber Mensagens
-function receberMensagens(msg){
-    const ulChat = document.querySelector(".chat");
-    ulChat.innerHTML = "";
-    
-    for (let i = 0; i<msg.data.length; i++){
-        if(msg.data[i].type === "status"){
-            ulChat.innerHTML +=
-            `<li class="msg-status"> 
-            <pre class="data"> (${msg.data[i].time}) </pre>
-            <pre class=" strong"> ${msg.data[i].from} </pre>
-            <pre class="msg"> ${msg.data[i].text} </pre>
-            
-        </li>` 
+        let mensagemHTML = null;
+        if(tipo === "status"){
+            mensagemHTML = `
+            <li class= "mensagem status">
+                <span class="horario">(${horario})</span>
+                <span class="pessoas"><b>${remetente}</b></span>
+                <span class="texto">${texto}</span>
+            </li>
+            `;
         } else {
-            ulChat.innerHTML +=
-            `<li class="mensagem"> 
-            <pre class="data"> (${msg.data[i].time}) </pre>
-            <pre class="nome strong"> ${msg.data[i].from} </pre>
-            <pre> para </pre>
-            <pre class="strong"> Todos </pre>
-            <pre class="msg"> ${msg.data[i].text} </pre>
-            
-        </li>` 
-        }   
-    }
-}
+            if(tipo === "message") {
+                mensagemHTML = `
+                <li class="mensagem publica">
+                    <span class="horario">(${horario})</span>
+                    <span class="pessoas"><b>${remetente}</b> para <b>${destinatario}</b>: </span>
+                    <span class="texto">${texto}</span>
+                </li>
+                `;
+            } else {
+                if(remetente === usuario || destinatario === usuario){
+                    mensagemHTML = `
+                    <li class="mensagem reservada">
+                        <span class="horario">(${horario})</span>
+                        <span class="pessoas"><b>${remetente}</b> reservadamente para <b>${destinatario}</b>: </span>
+                        <span class="texto">${texto}</span>
+                    </li>
+                    `;
+                }
+            }
+        }
 
-// Enviar mensagem 
-
-function enviarMensagem(){
-    const mensagemTexto = document.querySelector(".bottom > input").value;
-    let sendmsg = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", {
-        from: newName.name,
-        to: "Todos",
-        text: mensagemTexto,
-        type: "message"
+        if(mensagemHTML !== null) {
+            ul.innerHTML += mensagemHTML;
+        }
     });
-
-    promise.then(buscarMensagens);
-    promise.catch(TratarErro);
-}
-
-//Deixar o scrool na parte inferior enquanro recebe as mensagens
-function scroolIntoView(){
-    const element = document.querySelector(".chat");
-    element.scrollIntoView();
-}
-
-// Tratar erro de usuário com mesmo nome
-function TratarErro(error){
-    console.log(error.response);
-    if (error.response.status === 400){
-        alert ("Esse usuário já existe!");
-    }
-
 }
