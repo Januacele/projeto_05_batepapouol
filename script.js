@@ -1,8 +1,7 @@
-let names = [];
-const newName ={ 
-    name : ""
-};
-
+const UOL_API = "https://mock-api.driven.com.br/api/v6/uol/participants";
+const TEMPOATUALIZACAOCONEXAO = 5000;
+const TEMPOOBTERMENSAGENS = 3000;
+let usuario = null;
 
 //Carregar os nomes existentes dentro da API
 function getName(){
@@ -13,15 +12,15 @@ function getName(){
 }
 
 //Pergunto o nome do usuário com o prompt 
-// function addName(){
-//     const name = prompt("digite seu nome de usuário: ");
-//     newName.name = name;
+function addName(){
+    const name = prompt("digite seu nome de usuário: ");
+    newName.name = name;
     
-//     const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", newName);
+    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", newName);
 
-//     promise.then(sucessoOnline);
-// }
-// addName();
+    promise.then(sucessoOnline);
+}
+addName();
 
 //Para entrar na sala envia a requisição para esse link com um objeto no formato {name:""}
 
