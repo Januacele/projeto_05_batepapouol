@@ -1,28 +1,34 @@
-const UOL_API = "https://mock-api.driven.com.br/api/v6/uol/participants";
+const UOL_API = "https://mock-api.driven.com.br/api/v6/uol";
 const TEMPOATUALIZACAOCONEXAO = 5000;
 const TEMPOOBTERMENSAGENS = 3000;
 let usuario = null;
 
-//Carregar os nomes existentes dentro da API
-function getName(){
-    const promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
 
-    console.log(promise);
-    promise.then(carregarDados);
+function obterNomeUsuario(){
+    usuario = prompt("digite seu nome de usuário: ");
+    const promise = axios.post(`${UOL_API}/participants`, { name: usuario });
+
+    promise.then(() => {
+        obterMensagens();
+        setInterval(obterMensagens, TEMPOOBTERMENSAGENS);
+        setInterval(manterUsuarioConectado, TEMPOATUALIZACAOCONEXAO);
+    });
+    promise.catch(erro => obterNomeUsuario());
 }
 
-//Pergunto o nome do usuário com o prompt 
-function addName(){
-    const name = prompt("digite seu nome de usuário: ");
-    newName.name = name;
-    
-    const promise = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", newName);
+function obterMensagens() {
+    const promise = axios.get(`${UOL_API}/messages`);
+    promise.then(resposta => {
+      console.log(resposta.data);
+      renderizarMensagens(resposta.data);
+      focarNaUltimaMensagem();
+    });
+    promise.catch( erro => {
+      console.error(erro.response);
+      alert("Não recebeu as mensagens");
+    })
+  }
 
-    promise.then(sucessoOnline);
-}
-addName();
-
-//Para entrar na sala envia a requisição para esse link com um objeto no formato {name:""}
 
 function sucessoOnline(info){
     if (info.status === 200){
