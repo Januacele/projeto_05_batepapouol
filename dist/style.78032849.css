@@ -1,0 +1,250 @@
+* {
+    box-sizing: border-box;
+    --cor-fundo: #F3F3F3;
+    --fundo-mensagem-status: #DCDCDC;
+    --fundo-mensagem-publica: #FFFFFF;
+    --fundo-mensagem-reservada: #FFDEDE;
+    --mensagem-horario: #BDBDBD;
+    --botao-entrar: #E7E7E7;
+    --botao-entrar-texto: #696969;
+}
+
+.body{
+    width: 100vw;
+    background-color: var(--cor-fundo);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.container-entrada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+}
+  
+.container-entrada img {
+    position: absolute;
+    width: 130px;
+    height: 92px;
+    top: 72px;
+}
+  
+.container-entrada input {
+    text-align: center;
+    width: 260px;
+    height: 54px;
+    padding: 5px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+}
+
+.container-entrada button {
+    width: 109px;
+    height: 45px;
+    background: var(--botao-entrar);
+    border-radius: 9px;
+    border: 0;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--botao-entrar-texto);
+    cursor: pointer;
+}
+
+ion-icon {
+    cursor: pointer;
+}
+
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 45px;
+    background: #FFFFFF;
+    z-index: 1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+header img{
+    width: 75px;
+    height: 53px;
+}
+
+header * {
+    margin: 0 22px;
+}
+
+main{
+    margin: 80px 0;  
+}
+
+main .mensagem {
+    min-height: 40px;
+    width: 100%;
+    padding: 10px 8px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+.mensagem span {
+    margin-right: 10px;
+}
+  
+.mensagem b {
+    font-weight: bold;
+}
+
+.mensagem .horario {
+    color: var(--mensagem-horario);
+}
+
+main .status {
+    background-color: var(--fundo-mensagem-status);
+}
+  
+main .publica {
+    background-color: var(--fundo-mensagem-publica);
+}
+  
+main .reservada {
+    background-color: var(--fundo-mensagem-reservada);
+}
+
+
+footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    font-size: 26px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 630px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+}
+
+footer input {
+    border: 0;
+    color: black;
+    width: 70%;
+    font-size: 18px;
+}
+  
+footer .destinatario {
+    display: none;
+    margin-top: 3px;
+    font-weight: 300;
+    font-size: 14px;
+}
+  
+footer input::placeholder {
+    font-weight: 400;
+    color: black;
+    font-style: italic;
+}
+  
+footer input:focus {
+    outline: 0;
+    font-style: normal;
+}
+  
+footer * {
+    margin: 0 17px;
+}
+
+aside.menu {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    background: #fff;
+    width: 210px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    transition: all 150ms linear;
+    overflow-y: scroll;
+}
+
+aside .titulo-menu{
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 5px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+
+aside.menu li {
+    font-size: 14px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    word-break: break-word;
+}
+
+aside.menu ion-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    margin-top: -2px;
+    flex-shrink: 0;
+}
+
+aside.menu.escondido {
+    right: -210px;
+}
+
+.check {
+    position: absolute;
+    right: -5px;
+    top: -2px;
+    color: #61aa47;
+    display: none;
+}
+
+.selecionado .check {
+    display: inline;
+}
+
+.menu-fundo {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background: #0009;
+}
+
+
+.escondido {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    body {
+        max-width: 375px;
+    }
+}
+
+/*# sourceMappingURL=/style.78032849.css.map */

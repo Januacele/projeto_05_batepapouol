@@ -1,21 +1,26 @@
 const UOL_API = "https://mock-api.driven.com.br/api/v6/uol";
-const TEMPOATUALIZACAOCONEXAO = 5000;
+const TEMPOATUALIZACAOCONEXAO = 50000;
 const TEMPOOBTERMENSAGENS = 3000;
 let usuario = null;
 
-
-function obterNomeUsuario(){
-    input = document.querySelector("container-entrada input");
-    const usuario = input.value;
-    const promise = axios.post(`${UOL_API}/participants`, { name: usuario });
-
+function login() {
+    document.querySelector('.container').classList.remove('escondido');
+    document.querySelector('.container-entrada').classList.add('escondido');
+    let nome = document.querySelector('.entrar');
+    usuario = { name: nome.value };
+    const promise = axios.post(
+        `${UOL_API}/participants`, usuario
+    );
     promise.then(() => {
-        obterMensagens();
-        setInterval(obterMensagens, TEMPOOBTERMENSAGENS);
-        setInterval(manterUsuarioConectado, TEMPOATUALIZACAOCONEXAO);
+      obterMensagens();
+      setInterval(obterMensagens, TEMPOOBTERMENSAGENS);
+      setInterval(manterUsuarioConectado, TEMPOATUALIZACAOCONEXAO);
     });
-    promise.catch(erro => obterNomeUsuario());
+    promise.catch(erro => login());
+
+    return usuario;
 }
+
 
 function obterMensagens() {
     const promise = axios.get(`${UOL_API}/messages`);
@@ -85,36 +90,38 @@ function focarNaUltimaMensagem() {
 }
 
 function enviarMensagem() {
-    const input = document.querySelector("footer input");
-    const mensagem = input.value;
-    const promise = axios.post(`${UOL_API}/messages`, {
-      from: usuario,
-      to: "Todos",
-      text: mensagem,
-      type: "message"
-    });
-  
-    promise.then(resposta => {
-        console.log(resposta.data);
-    });
-    promise.catch(erro => {
-      console.error("Deu ruim na hora de enviar mensagem!");
-      alert("A mensagem não foi enviada!");
-      window.location.reload();
-    });
-  
-    input.value = "";
-    
-  }
+  let nome = document.querySelector('.entrar');
+  usuario = { name: nome.value };
+  const input = document.querySelector("footer input");
+  mensagem = input.value;
+  const promise = axios.post(`${UOL_API}/messages`, {
+    from: usuario.name,
+    to: "Todos",
+    text: mensagem,
+    type: "message"
+  });
 
-  function manterUsuarioConectado() {
-    const promise = axios.post(`${UOL_API}/status`, { name: usuario });
+  promise.then(function(response){
+    console.log("Mensagem enviada com sucesso!");
+  });
+  promise.catch(function (erro) {
+    alert("A mensagem não foi enviada!");
+  });
+
+  input.value = "";
+  
+}
+
+function manterUsuarioConectado() {
+    const promise = axios.post(`${UOL_API}/status`, { name: usuario.nome });
     promise.then(resposta => console.info("Usuário continua ativo"));
     promise.catch(erro => {
       console.error(erro.response);
       alert("Ops! Parece que você caiu! (ou foi kickado...)");
       window.location.reload();
     })
-  }
+}
 
-  obterNomeUsuario();
+function menu() {
+  document.querySelector('.menu').classList.remove('escondido');
+}

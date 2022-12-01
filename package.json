@@ -1,0 +1,20 @@
+{
+  "name": "projeto_05_batepapouol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Januacele/Projeto_05_batePapoUOL.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Januacele/Projeto_05_batePapoUOL/issues"
+  },
+  "homepage": "https://github.com/Januacele/Projeto_05_batePapoUOL#readme"
+}
